@@ -14,8 +14,15 @@ const client = new Client({
     user:DATABASE_USER,
     port:DATABASE_PORT,
     password:DATABASE_PASSWORD,
-    host:DATABASE_HOST
+    host:DATABASE_HOST,
+    ssl:true
 })
 client.connect()
+client.query(`CREATE TABLE IF NOT EXISTS products (
+    id SERIAL,
+    name varchar(255),
+    price varchar(255),
+    PRIMARY KEY (id)
+);`)
 
 module.exports = client
