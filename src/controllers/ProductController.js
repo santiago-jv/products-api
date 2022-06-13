@@ -33,7 +33,7 @@ ProductController.createProduct = async (request, response) => {
 }
 ProductController.updateProduct = async (request, response) => {
     const{name, price} = request.body
-
+    const {id} = request.params
     try {
 
         await client.query({
